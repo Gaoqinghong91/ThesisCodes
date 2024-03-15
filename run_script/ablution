@@ -1,0 +1,42 @@
+
+res-18 wo
+python train.py  --model_name UAV_wo_res18 --log_dir /home/walle/Disk_data/depth_model/ --split sunny_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG
+
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/UAV_wo_res18/models/weights_19 --eval_mono --eval_split sunny_UAV --dataset endo --JPEG
+
+&   0.064  &   0.711  &   7.811  &   0.092  &   0.949  &   1.000  &   1.000
+
+res-18 w GAT
+python train.py  --model_name UAV_our_res18 --log_dir /home/walle/Disk_data/depth_model/ --split sunny_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG
+
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/UAV_our_res18/models/weights_19 --eval_mono --eval_split sunny_UAV --dataset endo --JPEG
+
+&   0.056  &   0.494  &   6.366  &   0.078  &   0.978  &   1.000  &   1.000cd
+
+res-50 w GAT Finished
+python train.py  --model_name UAV_our_res50 --log_dir /home/walle/Disk_data/depth_model/ --split sunny_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG
+
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/UAV_our_res50/models/weights_19 --eval_mono --eval_split sunny_UAV --dataset endo --JPEG
+
+
+  abs_rel |   sq_rel |     rmse | rmse_log |       a1 |       a2 |       a3 | 
+&   0.051  &   0.780  &   4.473  &   0.093  &   0.913  &   0.958  &   0.992
+
+res-50 wo GAT
+
+python train.py  --model_name UAV_wo_res50 --log_dir /home/walle/Disk_data/depth_model/ --split sunny_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/UAV_wo_res50/models/weights_19 --eval_mono --eval_split sunny_UAV --dataset endo --JPEG
+
+   abs_rel |   sq_rel |     rmse | rmse_log |       a1 |       a2 |       a3 | 
+&   0.066  &   1.677  &   6.203  &   0.150  &   0.894  &   0.933  &   0.942 
+
+res-101 wo GAT
+
+python train.py  --model_name UAV_wo_res101 --log_dir /home/walle/Disk_data/depth_model/ --split sunny_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG
+
+
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/UAV_wo_res101/models/weights_19 --eval_mono --eval_split sunny_UAV --dataset endo --JPEG
+
+&   0.049  &   0.871  &   4.292  &   0.091  &   0.930  &   0.942
+
+res-101 w GAT

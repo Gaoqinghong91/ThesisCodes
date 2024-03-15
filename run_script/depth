@@ -1,0 +1,139 @@
+our
+//sunny
+python train.py  --model_name UAV_our --log_dir /home/walle/Disk_data/depth_model/ --split sunny_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG
+
+//winter
+python train.py  --model_name winter_UAV_our --log_dir /home/walle/Disk_data/depth_model/ --split winter_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG
+
+//wild
+python train.py  --model_name wild_UAV_our --log_dir /home/walle/Disk_data/depth_model/ --split wild_UAV --dis_use_equ --data_path /home/walle/Disk_data/wildUAV/video_img --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20
+
+//uavid_china
+python train.py  --model_name UAVid_our_china --log_dir /home/walle/Disk_data/depth_model/ --split uavid_split --dis_use_equ --data_path /home/walle/Disk_data/uavid/China/ --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --max_depth 1000
+
+//uavid_germany
+python train.py  --model_name UAVid_our_Germany --log_dir /home/walle/Disk_data/depth_model/ --split uavid_split --dis_use_equ --data_path /home/walle/Disk_data/uavid/Germany/ --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --max_depth 1000 --num_epochs 40
+
+
+//sunny_SID
+python train.py  --model_name sunny_UAV_our_SID --log_dir /home/walle/Disk_data/depth_model/ --split sunny_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG  --discretization SID
+
+//winter_SID
+python train.py  --model_name winter_UAV_our_SID --log_dir /home/walle/Disk_data/depth_model/ --split winter_UAV --dis_use_equ --data_path /home/walle/Disk_data/MidAir_resize --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --JPEG --discretization SID
+
+//wild_SID
+python train.py  --model_name wild_UAV_our --log_dir /home/walle/Disk_data/depth_model/ --split wild_UAV --dis_use_equ --data_path /home/walle/Disk_data/wildUAV/video_img --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20
+
+//uavid_china_SID
+python train.py  --model_name UAVid_our_china_SID --log_dir /home/walle/Disk_data/depth_model/ --split uavid_split --dis_use_equ --data_path /home/walle/Disk_data/uavid/China/ --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --max_depth 1000 --discretization SID
+//uavid_china_anti_SID
+python train.py  --model_name UAVid_our_china_anti_SID --log_dir /home/walle/Disk_data/depth_model/ --split uavid_split --dis_use_equ --data_path /home/walle/Disk_data/uavid/China/ --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --max_depth 1000 --discretization ANTI_SID
+
+//uavid_germany_SID
+python train.py  --model_name UAVid_our_Germany_SID --log_dir /home/walle/Disk_data/depth_model/ --split uavid_split --dis_use_equ --data_path /home/walle/Disk_data/uavid/Germany/ --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --max_depth 1000 --num_epochs 40 --discretization SID
+
+//uavid_germany_anti_SID
+python train.py  --model_name UAVid_our_Germany_anti_SID --log_dir /home/walle/Disk_data/depth_model/ --split uavid_split --dis_use_equ --data_path /home/walle/Disk_data/uavid/Germany/ --dataset endo  --batch_size 5 --num_workers 8  --height 192  --width 320 --num_epoch 20 --max_depth 1000 --num_epochs 40 --discretization ANTI_SID
+
+
+
+monodepth2
+
+//sunny
+python train.py --model_name sunny_mono2 --data_path /home/walle/Disk_data/MidAir_resize  --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --JPEG
+
+//winter
+python train.py --model_name winter_mono2 --data_path /home/walle/Disk_data/MidAir_resize  --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --JPEG
+
+//wild
+python train.py --model_name wild_mono2 --data_path /home/walle/Disk_data/wildUAV/video_img  --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320
+
+//UAVid_china
+python train.py --model_name UAVid_china_mono2 --data_path /home/walle/Disk_data/uavid/China/  --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --max_depth 1000
+
+//UAVid_germany
+python train.py --model_name UAVid_germany_mono2 --data_path /home/walle/Disk_data/uavid/Germany/  --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --max_depth 1000 --num_epochs 40
+
+
+
+
+self-attention
+//sunny
+
+python train.py --model_name sunny_selfattention --data_path /home/walle/Disk_data/MidAir_resize --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png
+
+//winter
+python train.py --model_name winter_selfattention --data_path /home/walle/Disk_data/MidAir_resize --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png
+
+//wild
+python train.py --model_name wild_selfattention --data_path /home/walle/Disk_data/wildUAV/video_img --log_dir /home/walle/Disk_data/depth_model/  --batch_size 3 --num_workers 8  --num_epoch 20 --height 192  --width 320
+
+//UAVid_china
+python train.py --model_name UAVid_china_selfattention --data_path /home/walle/Disk_data/uavid/China/ --log_dir /home/walle/Disk_data/depth_model/  --batch_size 3 --num_workers 8  --num_epoch 20 --height 192  --width 320 --max_depth 1000
+
+//UAVid_germany
+python train.py --model_name UAVid_germany_selfattention --data_path /home/walle/Disk_data/uavid/Germany/ --log_dir /home/walle/Disk_data/depth_model/  --batch_size 3 --num_workers 8  --num_epoch 20 --height 192  --width 320 --max_depth 1000
+
+
+gcn
+//sunny
+python run.py
+python scripts/export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/daVinci/test/ --ext png --output_path /home/walle/Documents/dataset/endoscopy/daVinci/depth_results/gcn_depth/
+
+
+
+LiteMono
+//sunny
+python train.py --model_name sunny_LiteMono --data_path /home/walle/Disk_data/MidAir_resize --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png --lr 0.0001 5e-6 31 0.0001 1e-5 31
+
+//winter
+python train.py --model_name winter_LiteMono --data_path /home/walle/Disk_data/MidAir_resize --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png --lr 0.0001 5e-6 31 0.0001 1e-5 31
+
+
+//wild
+python train.py --model_name wild_LiteMono --data_path /home/walle/Disk_data/wildUAV/video_img --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --lr 0.0001 5e-6 31 0.0001 1e-5 31
+
+//UAVid_china
+python train.py --model_name UAVid_china_LiteMono --data_path /home/walle/Disk_data/uavid/China/ --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --lr 0.0001 5e-6 31 0.0001 1e-5 31 --max_depth 1000
+
+//UAVid_germany
+python train.py --model_name UAVid_germany_LiteMono --data_path /home/walle/Disk_data/uavid/Germany/ --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 40 --height 192  --width 320 --lr 0.0001 5e-6 31 0.0001 1e-5 31 --max_depth 1000
+
+
+
+
+
+MonoFormer
+//sunny
+python3 scripts/train.py configs/train_uav_hybrid.yaml
+
+//winter
+python3 scripts/train.py configs/train_uav_hybrid_winter.yaml
+
+
+//wild
+python3 scripts/train.py configs/train_uav_hybrid_wild.yaml
+
+//UAVid_china
+python3 scripts/train.py configs/train_uav_hybrid_UAVid.yaml
+
+//UAVid_germany
+python3 scripts/train.py configs/train_uav_hybrid_UAVid_Germany.yaml
+
+
+monoUAV
+
+//sunny
+python train_feature.py --model_name sunny_monoUAV --data_path /home/walle/Disk_data/MidAir_resize  --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png --contrastive_loss
+
+//winter
+python train_feature.py --model_name winter_monoUAV --data_path /home/walle/Disk_data/MidAir_resize  --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png --contrastive_loss
+
+//UAVid_china
+python train_feature.py --model_name UAVid_monoUAV_china --data_path /home/walle/Disk_data/uavid/China/ --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --contrastive_loss
+
+
+//UAVid_germany
+python train_feature.py --model_name UAVid_monoUAV_germany --data_path /home/walle/Disk_data/uavid/Germany/ --log_dir /home/walle/Disk_data/depth_model/  --batch_size 5 --num_workers 8  --num_epoch 40 --height 192  --width 320 --contrastive_loss  
+
+

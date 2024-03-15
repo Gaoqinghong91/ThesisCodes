@@ -1,0 +1,99 @@
+///modified:
+
+//depth_img-wild
+python export_depth.py --image_path /home/walle/Disk_data/wildUAV/wilduav_test_img --model_path /home/walle/Disk_data/depth_model/wild_UAV_our/models/weights_19 --ext png --output_path /home/walle/Documents/dataset/experiment_results/UAV_depth/wild_our
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+af_sfm:
+//train1
+CUDA_VISIBLE_DEVICES=0 python train_stage_one.py --data_path /home/walle/Documents/dataset/endoscopy/ --log_dir /home/walle/tmp/af_daVinci/  --batch_size 12 --num_workers 8  --num_epoch 20 
+
+//train2
+CUDA_VISIBLE_DEVICES=0 python train_stage_two.py --data_path /home/walle/Documents/dataset/endoscopy/ --log_dir /home/walle/tmp/af_daVinci/finnal/ --load_weights_folde /home/walle/tmp/af_daVinci/mdp/models/weights_19/ --batch_size 8 --num_workers 8  --num_epoch 20
+//depth_point
+python export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/daVinci/test/ --model_path /home/walle/tmp/af_daVinci/finnal/mdp/models/weights_19/ --ext png --output_path /home/walle/Documents/dataset/endoscopy/daVinci/depth_results/af_depth/
+
+
+monodepth2
+//train
+python train.py --data_path /home/walle/Documents/dataset/endoscopy/ --log_dir /home/walle/tmp/monodepth2_daVinci  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png
+//depth_point
+python export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/daVinci/test/ --model_path /home/walle/Documents/dataset/mono_models/monoendo_daVinci/ --ext png --output_path /home/walle/Documents/dataset/endoscopy/daVinci/depth_results/mono_depth/
+
+self-attention
+//train
+python train.py --data_path /home/walle/Documents/dataset/endoscopy/ --log_dir /home/walle/tmp/attention_daVinci  --batch_size 5 --num_workers 8  --num_epoch 20 --height 192  --width 320 --png
+//depth_point
+python export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/daVinci/test/ --model_path /home/walle/tmp/attention_daVinci/mdp/models/weights_19/ --ext png --output_path /home/walle/Documents/dataset/endoscopy/daVinci/depth_results/self_depth/
+
+
+gcndepth
+
+//depth_point
+python scripts/export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/daVinci/test/ --ext png --output_path /home/walle/Documents/dataset/endoscopy/daVinci/depth_results/gcn_depth/
+
+
+sfm
+//depth_point
+python test_disp.py --pretrained-dispnet /home/walle/tmp/sfmendo/dispnet_model_best.pth.tar  --dataset-dir /home/walle/Documents/dataset/endoscopy/daVinci/test/ --output-dir /home/walle/Documents/dataset/endoscopy/daVinci/depth_results/sfm_depth/
+
+
+
+///SCARED
+//modified:
+
+//depth_point-SCARED
+python export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/img/ --model_path /home/walle/tmp/test_scared_192_wopre/models/weights_19 --ext png --output_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/test_depth/
+
+
+
+//af:
+
+//depth_point
+python export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/img/ --model_path /home/walle/tmp/af_scared/finnal/mdp/models/weights_19 --ext png --output_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/af_depth/
+
+
+//monodepth2
+
+python export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/img/ --model_path /home/walle/tmp/monodepth2_scared/models/weights_19 --ext png --output_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/mono_depth/
+
+//self-attention
+
+python export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/img/ --model_path /home/walle/tmp/attention_scared/mdp/models/weights_19 --ext png --output_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/self_depth/
+
+
+//gcndepth
+
+//depth_point
+python scripts/export_depth.py --image_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/img/ --ext png --output_path /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/gcn_depth/
+
+
+//sfm
+//depth_point
+python test_disp.py --pretrained-dispnet /home/walle/tmp/sfmendo/dispnet_model_best.pth.tar  --dataset-dir /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/img/ --output-dir /home/walle/Documents/dataset/endoscopy/endo_SCARED_depth/sfm_depth/

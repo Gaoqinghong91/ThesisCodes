@@ -1,0 +1,82 @@
+
+
+test
+//sunny
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_our/models/weights_19 --eval_mono --eval_split sunny_UAV --dataset endo --JPEG
+
+//spring
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_our/models/weights_19 --eval_mono --eval_split spring_UAV --dataset endo --JPEG
+
+//winter
+python evaluate_endodepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/winter_UAV_our/models/weights_19 --eval_mono --eval_split winter_UAV --dataset endo --JPEG
+
+
+mono2
+//sunny
+python evaluate_uavdepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_mono2/models/weights_19 --eval_mono --JPEG
+
+//spring
+python evaluate_uavdepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_mono2/models/weights_19 --eval_mono --JPEG
+
+//winter
+python evaluate_uavdepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/winter_mono2/models/weights_19 --eval_mono --JPEG
+
+
+self
+python evaluate_uavdepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_selfattention/models/weights_19 --eval_mono --png
+
+//spring
+python evaluate_uavdepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_selfattention/models/weights_19 --eval_mono --png
+
+//winter
+python evaluate_uavdepth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/winter_selfattention/models/weights_19 --eval_mono --png
+
+gcn
+python ./scripts/eval_uavdepth.py
+
+//spring
+python ./scripts/eval_uavdepth.py
+
+//spring
+python ./scripts/eval_uavdepth.py
+
+
+
+LITEmono
+python evaluate_uavdepth.py --load_weights_folder  /home/walle/Disk_data/depth_model/sunny_LiteMono/models/weights_19/ --data_path /home/walle/Disk_data/MidAir_resize --model lite-mono-8m
+
+//spring
+python evaluate_uavdepth.py --load_weights_folder  /home/walle/Disk_data/depth_model/sunny_LiteMono/models/weights_19/ --data_path /home/walle/Disk_data/MidAir_resize --model lite-mono-8m
+
+//winter
+python evaluate_uavdepth.py --load_weights_folder  /home/walle/Disk_data/depth_model/winter_LiteMono/models/weights_19/ --data_path /home/walle/Disk_data/MidAir_resize --model lite-mono-8m
+
+
+//monoformer
+python3 scripts/export_uavdepth.py --checkpoint /home/walle/Disk_data/depth_model/monoformer_sunny/default_config-train_uav_hybrid-2023.06.21-18h51m04s/epoch=19_-test_files-velodyne-abs_rel_gt=0.000.ckpt --config configs/train_uav_hybrid.yaml
+
+python  scripts/eval_uav.py
+
+//spring
+python3 scripts/export_uavdepth.py --checkpoint /home/walle/Disk_data/depth_model/monoformer_sunny/default_config-train_uav_hybrid-2023.06.21-18h51m04s/epoch=19_-test_files-velodyne-abs_rel_gt=0.000.ckpt --config configs/train_uav_hybrid.yaml
+
+python  scripts/eval_uav.py
+
+//winter
+python3 scripts/export_uavdepth.py --checkpoint /home/walle/Disk_data/depth_model/winter_monoformer/default_config-train_uav_hybrid_winter-2023.06.27-16h10m42s/epoch=19_-test_files-velodyne-abs_rel_gt=0.000.ckpt --config configs/train_uav_hybrid_winter.yaml
+
+python  scripts/eval_uav.py
+
+MonoUAV
+
+//sunny
+python evaluate_depth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_monoUAV/models/weights_19 --eval_mono --png
+
+//spring
+python evaluate_depth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/sunny_monoUAV/models/weights_19 --eval_mono --png
+
+//winter
+python evaluate_depth.py --data_path /home/walle/Disk_data/MidAir_resize  --load_weights_folder /home/walle/Disk_data/depth_model/winter_monoUAV/models/weights_19 --eval_mono --png
+
+
+
